@@ -167,6 +167,8 @@ export const insertAncAppointmentSchema = createInsertSchema(ancAppointments).om
   createdAt: true,
   updatedAt: true,
   reminderSent: true,
+}).extend({
+  appointmentDate: z.string().transform((str) => new Date(str)),
 });
 
 export const insertRiskAssessmentSchema = createInsertSchema(riskAssessments).omit({
